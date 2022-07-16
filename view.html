@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app = "mymod"> 
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src = "mod1.js"> </script>
+</head>
+<body>
+    Developer details:
+    <div ng-controller = "mycontroller">
+        <div> 
+            Email : {{contact.email}}
+        </div>
+        <div>
+            Name : {{contact.name}}
+        </div>
+        <div>
+            Contact Number: {{contact.contact_number}}
+        </div>
+        <div>
+            Nationality : {{contact.nationality}}
+        </div>
+       
+
+    </div>
+    
+</body>
+</html>
+
+<!-- we associate module with ng-app directive and associate controller with ng-controller 
+    directive in the view
+-->

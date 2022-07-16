@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app = "mymod2"> 
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src = "mod2.js"> </script>
+    <!-- custom css file cdn link  -->
+    <link rel="stylesheet" href="css/mod_style.css">
+</head>
+<body >
+
+
+   
+        <div class = 'head' > Package details: </div>
+        <center>
+
+        <!-- ng-controller is used to preserve scope, variables declared in controller can 
+        be used here, also connects model and view -->
+    <div ng-controller = "mycontroller2">
+        <br/>
+        <br/>
+        Rows to display : <input type="number" step="1"
+                                 ng-model="rowCount" max="5" min="0" />
+        <br /><br />
+        Sort By : 
+        <select ng-model="sortColumn">
+            <option value="+Place">place ASC</option>
+            <option value="+price">price ASC</option>
+            <option value="likes">likes</option>
+            <option value="dislikes">dislikes</option>
+            
+        </select>
+        <br/> <br/>
+
+        <table>
+            <thead>
+                <tr>
+                    <th> Place </th>
+                    <th> Price </th>
+                    <th> Likes </th>
+                    <th> Dislikes </th>
+                    <th> Like/Dislike</th>
+                </tr>
+                
+            </thead>
+
+            <tbody>
+                <tr ng-repeat = "p in details | limitTo:rowCount | orderBy:sortColumn">
+                    <!-- angualr js filters:  -->
+                    <td> {{p.Place | uppercase}}  </td>
+                    <td> {{p.price}} </td>
+                    <td> {{p.likes }}</td>
+                    <td> {{p.dislikes}} </td>
+                    <td>
+                        <input type = "button" value = "Like" ng-click = "inc_likes(p)">
+                        <input type = "button" value = "DisLike" ng-click = "dec_likes(p)">
+                    </td>
+                    
+
+                </tr>
+            </tbody>
+        </table>
+    </center>
+
+    </div>
+    
+</body>
+</html>
+
+<!-- we associate module with ng-app directive and associate controller with ng-controller 
+    directive in the view
+-->
